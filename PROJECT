@@ -1,0 +1,16 @@
+domain: jmongodb.crd.com
+layout:
+- go.kubebuilder.io/v3
+projectName: mymongodbcrd
+repo: MyMongodbCRD
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: jmongodb.crd.com
+  group: customgroup
+  kind: Mymongodb
+  path: MyMongodbCRD/api/v1
+  version: v1
+version: "3"

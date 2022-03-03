@@ -1,0 +1,24 @@
+# permissions for end users to edit mymongodbs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mymongodb-editor-role
+rules:
+- apiGroups:
+  - customgroup.jmongodb.crd.com
+  resources:
+  - mymongodbs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - customgroup.jmongodb.crd.com
+  resources:
+  - mymongodbs/status
+  verbs:
+  - get

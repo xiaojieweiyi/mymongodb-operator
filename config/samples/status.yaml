@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mymongodb-sample
+  namespace: default
+  labels:
+    app: mymongodb-sample
+spec:
+  # TODO(user): Add fields here
+  serviceName: mymongodb
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mymongodb-sample
+  template:
+    metadata:
+      labels:
+        app: mymongodb-sample
+    spec:
+      containers:
+      - name: mongodb
+        image: nginx
+        imagePullPolicy: IfNotPresent

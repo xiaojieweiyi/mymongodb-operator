@@ -1,0 +1,20 @@
+# permissions for end users to view mymongodbs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mymongodb-viewer-role
+rules:
+- apiGroups:
+  - customgroup.jmongodb.crd.com
+  resources:
+  - mymongodbs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - customgroup.jmongodb.crd.com
+  resources:
+  - mymongodbs/status
+  verbs:
+  - get
